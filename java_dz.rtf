@@ -1,71 +1,26 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2822
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
-{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
-{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
-\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+import java.util.ArrayList;
+import java.util.List;
 
-\f0\fs26 \cf2 import java.util.*;\
-\
-public class Main \{\
-\
-    static class StackA<T> \{\
-        // \uc0\u1056 \u1077 \u1072 \u1083 \u1080 \u1079 \u1072 \u1094 \u1080 \u1103  \u1089 \u1090 \u1077 \u1082 \u1072  \u1085 \u1072  ArrayDeque\
-        private final ArrayDeque<T> d = new ArrayDeque<>();\
-        public void push(T x) \{ d.push(x); \}    // push\
-        public T pop() \{ return d.pop(); \}      // pop\
-        public T peek() \{ return d.peek(); \}    // peek\
-        public boolean empty() \{ return d.isEmpty(); \}\
-    \}\
-\
-    static class MinHeap \{\
-        // \uc0\u1056 \u1077 \u1072 \u1083 \u1080 \u1079 \u1072 \u1094 \u1080 \u1103  \u1084 \u1080 \u1085 -\u1082 \u1091 \u1095 \u1080  (\u1073 \u1080 \u1085 \u1072 \u1088 \u1085 \u1072 \u1103  \u1082 \u1091 \u1095 \u1072 )\
-        private final ArrayList<Integer> a = new ArrayList<>();\
-        private void siftUp(int i) \{            // \uc0\u1087 \u1086 \u1076 \u1098 \u1105 \u1084 \
-            while (i > 0) \{\
-                int p = (i - 1) / 2;\
-                if (a.get(p) <= a.get(i)) break;\
-                int t = a.get(p); a.set(p, a.get(i)); a.set(i, t);\
-                i = p;\
-            \}\
-        \}\
-        private void siftDown(int i) \{          // \uc0\u1086 \u1087 \u1091 \u1089 \u1082 \u1072 \u1085 \u1080 \u1077 \
-            int n = a.size();\
-            while (true) \{\
-                int l = 2*i + 1, r = 2*i + 2, s = i;\
-                if (l < n && a.get(l) < a.get(s)) s = l;\
-                if (r < n && a.get(r) < a.get(s)) s = r;\
-                if (s == i) break;\
-                int t = a.get(i); a.set(i, a.get(s)); a.set(s, t);\
-                i = s;\
-            \}\
-        \}\
-        public void push(int x) \{ a.add(x); siftUp(a.size() - 1); \} // \uc0\u1074 \u1089 \u1090 \u1072 \u1074 \u1082 \u1072 \
-        public int peek() \{ return a.get(0); \}                      // \uc0\u1084 \u1080 \u1085 \u1080 \u1084 \u1091 \u1084 \
-        public int pop() \{                                          // \uc0\u1091 \u1076 \u1072 \u1083 \u1080 \u1090 \u1100  \u1084 \u1080 \u1085 \u1080 \u1084 \u1091 \u1084 \
-            int res = a.get(0);\
-            int last = a.remove(a.size() - 1);\
-            if (!a.isEmpty()) \{ a.set(0, last); siftDown(0); \}\
-            return res;\
-        \}\
-        public boolean empty() \{ return a.isEmpty(); \}\
-    \}\
-\
-    public static void main(String[] args) \{\
-        List<Integer> nums = new ArrayList<>(Arrays.asList(10, 20, 30));\
-        nums.add(40);\
-        System.out.println(nums);\
-\
-        StackA<String> st = new StackA<>();\
-        st.push("A");\
-        st.push("B");\
-        System.out.println(st.peek());\
-        System.out.println(st.pop());\
-\
-        MinHeap hp = new MinHeap();\
-        for (int x : new int[]\{5, 1, 9, 3\}) hp.push(x);\
-        System.out.println(hp.peek());\
-        System.out.println(hp.pop());\
-        System.out.println(hp.peek());\
-    \}\
-\}}
+public class DemoList {
+    public static void main(String[] args) {
+        List<String> letters = new ArrayList<>();
+        letters.add("X");
+        letters.add("Y");
+        letters.add("Z");
+    }
+}
+
+#stack
+
+import java.util.Stack;
+
+public class DemoStack {
+    public static void main(String[] args) {
+        Stack<Integer> values = new Stack<>();
+
+        values.push(10);
+        values.push(20);
+        values.push(30);
+        values.push(40);
+    }
+}
