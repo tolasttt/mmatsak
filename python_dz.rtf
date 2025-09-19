@@ -1,75 +1,9 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2822
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 .AppleColorEmojiUI;}
-{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
-{\*\expandedcolortbl;;\cspthree\c0\c0\c0;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
-\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+names = ['Tom', 'Bob', 'Sam', 'Kate', 'Ann']
+names.append('John')
+print(names)
 
-\f0\fs26 \cf2 class Stack:\
-    # \uc0\u1056 \u1077 \u1072 \u1083 \u1080 \u1079 \u1072 \u1094 \u1080 \u1103  \u1089 \u1090 \u1077 \u1082 \u1072  \u1085 \u1072  \u1089 \u1087 \u1080 \u1089 \u1082 \u1077  (push/pop/peek)\
-    def __init__(self):\
-        self._d = []\
-    def push(self, x):  # \uc0\u1076 \u1086 \u1073 \u1072 \u1074 \u1083 \u1077 \u1085 \u1080 \u1077  \u1085 \u1072  \u1074 \u1077 \u1088 \u1093 \
-        self._d.append(x)\
-    def pop(self):      # \uc0\u1089 \u1085 \u1103 \u1090 \u1080 \u1077  \u1089  \u1074 \u1077 \u1088 \u1093 \u1072 \
-        return self._d.pop()\
-    def peek(self):     # \uc0\u1087 \u1088 \u1086 \u1089 \u1084 \u1086 \u1090 \u1088  \u1074 \u1077 \u1088 \u1093 \u1072 \
-        return self._d[-1]\
-    def empty(self):\
-        return not self._d\
-\
-class MinHeap:\
-    # \uc0\u1056 \u1077 \u1072 \u1083 \u1080 \u1079 \u1072 \u1094 \u1080 \u1103  \u1084 \u1080 \u1085 -\u1082 \u1091 \u1095 \u1080  (\u1073 \u1080 \u1085 \u1072 \u1088 \u1085 \u1072 \u1103  \u1082 \u1091 \u1095 \u1072 )\
-    def __init__(self):\
-        self._a = []\
-    def _sift_up(self, i):  # \uc0\u1087 \u1086 \u1076 \u1098 \u1105 \u1084  \u1101 \u1083 \u1077 \u1084 \u1077 \u1085 \u1090 \u1072 \
-        while i > 0:\
-            p = (i - 1) // 2\
-            if self._a[p] <= self._a[i]:\
-                break\
-            self._a[p], self._a[i] = self._a[i], self._a[p]\
-            i = p\
-    def _sift_down(self, i):  # \uc0\u1086 \u1087 \u1091 \u1089 \u1082 \u1072 \u1085 \u1080 \u1077  \u1101 \u1083 \u1077 \u1084 \u1077 \u1085 \u1090 \u1072 \
-        n = len(self._a)\
-        while True:\
-            l, r = 2*i + 1, 2*i + 2\
-            s = i\
-            if l < n and self._a[l] < self._a[s]:\
-                s = l\
-            if r < n and self._a[r] < self._a[s]:\
-                s = r\
-            if s == i:\
-                break\
-            self._a[i], self._a[s] = self._a[s], self._a[i]\
-            i = s\
-    def push(self, x):  # \uc0\u1074 \u1089 \u1090 \u1072 \u1074 \u1082 \u1072 \
-        self._a.append(x)\
-        self._sift_up(len(self._a) - 1)\
-    def pop(self):      # \uc0\u1091 \u1076 \u1072 \u1083 \u1080 \u1090 \u1100  \u1084 \u1080 \u1085 \u1080 \u1084 \u1091 \u1084 \
-        m = self._a[0]\
-        last = self._a.pop()\
-        if self._a:\
-            self._a[0] = last\
-            self._sift_down(0)\
-        return m\
-    def peek(self):     # \uc0\u1084 \u1080 \u1085 \u1080 \u1084 \u1091 \u1084 \
-        return self._a[0]\
-    def empty(self):\
-        return not self._a\
-\
-nums = [10, 20, 30]\
-nums.append(40)\
-print(nums)\
-\
-st = Stack()\
-st.push("A")\
-st.push("B")\
-print(st.peek())\
-print(st.pop())\
-\
-hp = MinHeap()\
-for x in [5, 1, 9, 3]:\
-    hp.push(x)\
-print(hp.peek())\
-print(hp.pop())\
-print(hp.peek())}
+#stack
+stack = []
+for item in ['a', 'b', 'c']:
+    stack.append(item)
+print(stack)
