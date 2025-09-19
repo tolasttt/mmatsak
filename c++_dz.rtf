@@ -1,74 +1,11 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2822
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
-{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
-{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
-\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+import java.util.ArrayList;
+import java.util.List;
 
-\f0\fs26 \cf2 #include <iostream>\
-#include <vector>\
-#include <string>\
-\
-template <typename T>\
-class Stack \{\
-    // \uc0\u1056 \u1077 \u1072 \u1083 \u1080 \u1079 \u1072 \u1094 \u1080 \u1103  \u1089 \u1090 \u1077 \u1082 \u1072  \u1085 \u1072  \u1074 \u1077 \u1082 \u1090 \u1086 \u1088 \u1077 \
-    std::vector<T> a;\
-public:\
-    void push(const T& x) \{ a.push_back(x); \}   // push\
-    void pop() \{ a.pop_back(); \}                // pop\
-    T& top() \{ return a.back(); \}               // peek\
-    bool empty() const \{ return a.empty(); \}\
-    size_t size() const \{ return a.size(); \}\
-\};\
-\
-class MinHeap \{\
-    // \uc0\u1056 \u1077 \u1072 \u1083 \u1080 \u1079 \u1072 \u1094 \u1080 \u1103  \u1084 \u1080 \u1085 -\u1082 \u1091 \u1095 \u1080  (\u1073 \u1080 \u1085 \u1072 \u1088 \u1085 \u1072 \u1103  \u1082 \u1091 \u1095 \u1072 )\
-    std::vector<int> a;\
-    void sift_up(int i) \{                        // \uc0\u1087 \u1086 \u1076 \u1098 \u1105 \u1084 \
-        while (i > 0) \{\
-            int p = (i - 1) / 2;\
-            if (a[p] <= a[i]) break;\
-            std::swap(a[p], a[i]);\
-            i = p;\
-        \}\
-    \}\
-    void sift_down(int i) \{                      // \uc0\u1086 \u1087 \u1091 \u1089 \u1082 \u1072 \u1085 \u1080 \u1077 \
-        int n = (int)a.size();\
-        while (true) \{\
-            int l = 2*i + 1, r = 2*i + 2, s = i;\
-            if (l < n && a[l] < a[s]) s = l;\
-            if (r < n && a[r] < a[s]) s = r;\
-            if (s == i) break;\
-            std::swap(a[i], a[s]);\
-            i = s;\
-        \}\
-    \}\
-public:\
-    void push(int x) \{ a.push_back(x); sift_up((int)a.size() - 1); \} // \uc0\u1074 \u1089 \u1090 \u1072 \u1074 \u1082 \u1072 \
-    int top() const \{ return a[0]; \}                                 // \uc0\u1084 \u1080 \u1085 \u1080 \u1084 \u1091 \u1084 \
-    void pop() \{                                                     // \uc0\u1091 \u1076 \u1072 \u1083 \u1080 \u1090 \u1100  \u1084 \u1080 \u1085 \u1080 \u1084 \u1091 \u1084 \
-        std::swap(a[0], a.back());\
-        a.pop_back();\
-        if (!a.empty()) sift_down(0);\
-    \}\
-    bool empty() const \{ return a.empty(); \}\
-\};\
-\
-int main() \{\
-    std::vector<int> nums\{10, 20, 30\};\
-    nums.push_back(40);\
-    for (int x : nums) std::cout << x << ' ';\
-    std::cout << '\\n';\
-\
-    Stack<std::string> st;\
-    st.push("A");\
-    st.push("B");\
-    std::cout << st.top() << '\\n';\
-    st.pop();\
-\
-    MinHeap hp;\
-    for (int x : \{5, 1, 9, 3\}) hp.push(x);\
-    std::cout << hp.top() << '\\n';\
-    hp.pop();\
-    std::cout << hp.top() << '\\n';\
-\}}
+public class ArraysExample {
+    public static void main(String[] args) {
+        List<String> myList = new ArrayList<>();
+        myList.add("P");
+        myList.add("Q");
+        myList.add("R");
+    }
+}
