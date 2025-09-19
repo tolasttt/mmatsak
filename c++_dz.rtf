@@ -1,28 +1,38 @@
-import java.util.ArrayList;
-import java.util.List;
+#include <iostream>
+#include <list>
+using namespace std;
 
-public class ArraysExample {
-    public static void main(String[] args) {
-        List<String> myList = new ArrayList<>();
-        myList.add("P");
-        myList.add("Q");
-        myList.add("R");
+int main() {
+    list<int> listData;
+
+    listData.push_back(10);
+    listData.push_back(20);
+    listData.push_back(30);
+    listData.push_back(40);
+
+    for (int value : listData) {
+        cout << value << " ";
     }
+
+    return 0;
 }
 
 
 #stack
-import java.util.Stack;
 
-public class StackExample {
-    public static void main(String[] args) {
-        Stack<Integer> stack = new Stack<>();
+#include <iostream>
+#include <stack>
+using namespace std;
 
-        stack.push(1);
-        stack.push(2);
-        stack.push(3);
-        stack.push(4);
+int main() {
+    stack<string> names;
+    string arr[] = {"Tom", "Bob", "Sam"};
 
-        System.out.println("Стек: " + stack);
+    for (const string& name : arr) {
+        names.push(name);
     }
+
+    cout << "Верхний элемент стека: " << names.top() << endl;
+
+    return 0;
 }
